@@ -1,24 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## RankFolderとは
+RankFolderとは、Webサイトの検索順位の変動を記録するのが面倒という問題を解決する、Webサイトを運営しているエンジニア向けの、Google検索順位チェックサービスです。
+ユーザーは検索ワードとURLを登録すると、登録したURLのGoogle検索順位を1日毎に自動で記録することができ、他の検索順位チェックサービスとは違って、サイト運営者がデータを独自に利用できるAPIが備わっている事が特徴です。
