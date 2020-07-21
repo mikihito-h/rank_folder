@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UrlsController < ApplicationController
   before_action :set_url, only: [:show, :edit, :update, :destroy]
 
@@ -17,26 +19,24 @@ class UrlsController < ApplicationController
 
   def create
     @url = Url.new(url_params)
-
-      if @url.save
-        redirect_to @url, notice: 'Url was successfully created.'
-      else
-        render :new
-      end
-
+    if @url.save
+      redirect_to @url, notice: "Url was successfully created."
+    else
+      render :new
+    end
   end
 
   def update
-      if @url.update(url_params)
-        redirect_to @url, notice: 'Url was successfully updated.'
-      else
-        render :edit
-      end
+    if @url.update(url_params)
+      redirect_to @url, notice: "Url was successfully updated."
+    else
+      render :edit
+    end
   end
 
   def destroy
     @url.destroy
-      redirect_to urls_url, notice: 'Url was successfully destroyed.'
+    redirect_to urls_url, notice: "Url was successfully destroyed."
   end
 
   private

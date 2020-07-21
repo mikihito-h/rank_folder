@@ -1,4 +1,6 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 
 class UrlsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +18,7 @@ class UrlsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create url" do
-    assert_difference('Url.count') do
+    assert_difference("Url.count") do
       post urls_url, params: { url: { url: @url.url, user_id: @url.user_id } }
     end
 
@@ -39,7 +41,7 @@ class UrlsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy url" do
-    assert_difference('Url.count', -1) do
+    assert_difference("Url.count", -1) do
       delete url_url(@url)
     end
 
