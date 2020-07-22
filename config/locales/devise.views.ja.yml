@@ -27,6 +27,14 @@ ja:
         updated_at: 更新日
     models:
       user: ユーザ
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: を入力してください。
+            password:
+              blank: を入力してください。
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
