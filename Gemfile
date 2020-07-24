@@ -17,6 +17,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 # not default
 gem "devise"
 gem "devise-i18n"
+gem "slim-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
@@ -32,6 +33,7 @@ group :development do
   gem "rubocop", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
+  gem "html2slim"
 end
 
 group :test do
