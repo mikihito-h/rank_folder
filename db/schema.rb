@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_22_014504) do
+ActiveRecord::Schema.define(version: 2020_07_24_084526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "keywords", force: :cascade do |t|
+    t.string "keyword", null: false
+    t.integer "url_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["url_id"], name: "index_keywords_on_url_id"
+  end
 
   create_table "urls", force: :cascade do |t|
     t.string "url", null: false
