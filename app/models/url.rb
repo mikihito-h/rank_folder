@@ -2,4 +2,5 @@
 
 class Url < ApplicationRecord
   validates :url, presence: true
+  has_may :keywords
 end
