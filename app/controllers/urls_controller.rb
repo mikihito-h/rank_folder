@@ -41,7 +41,7 @@ class UrlsController < ApplicationController
 
   private
     def set_url
-      @url = Url.find(params[:id])
+      @url = current_user.urls.find(params[:id])
     end
 
     def url_params
