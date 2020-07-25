@@ -11,5 +11,9 @@
   .field
     = form.label :url
     = form.text_field :url
+  .field
+    = form.fields_for :keywords do |keyword|
+      = keyword.label :keyword
+      = keyword.text_field :keyword
   .actions
     = form.submit

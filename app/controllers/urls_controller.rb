@@ -12,6 +12,7 @@ class UrlsController < ApplicationController
 
   def new
     @url = Url.new
+    @url.keywords.build
   end
 
   def edit
@@ -45,6 +46,8 @@ class UrlsController < ApplicationController
     end
 
     def url_params
-      params.require(:url).permit(:url)
+      params.require(:url).permit(
+        :url,
+        keywords_attributes: [:keyword])
     end
 end

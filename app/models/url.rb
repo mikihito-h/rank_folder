@@ -2,6 +2,7 @@
 
 class Url < ApplicationRecord
   validates :url, presence: true
-  has_many :keywords
   belongs_to :user
+  has_many :keywords
+  accepts_nested_attributes_for :keywords
 end
