@@ -20,7 +20,7 @@ class UrlsController < ApplicationController
   def create
     @url = current_user.urls.new(url_params)
     if @url.save
-      redirect_to @url, notice: "Url was successfully created."
+      redirect_to @url, notice: "Urlを登録しました。"
     else
       render :new
     end
@@ -28,7 +28,7 @@ class UrlsController < ApplicationController
 
   def update
     if @url.update(url_params)
-      redirect_to @url, notice: "Url was successfully updated."
+      redirect_to @url, notice: "Urlを更新しました。"
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class UrlsController < ApplicationController
 
   def destroy
     @url.destroy
-    redirect_to urls_url, notice: "Url was successfully destroyed."
+    redirect_to urls_url, notice: "Urlを削除しました。"
   end
 
   private
