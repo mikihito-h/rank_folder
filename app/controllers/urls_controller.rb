@@ -18,7 +18,7 @@ class UrlsController < ApplicationController
   end
 
   def create
-    @url = Url.new(url_params)
+    @url = current_user.urls.new(url_params)
     if @url.save
       redirect_to @url, notice: "Url was successfully created."
     else
@@ -45,6 +45,6 @@ class UrlsController < ApplicationController
     end
 
     def url_params
-      params.require(:url).permit(:url, :user_id)
+      params.require(:url).permit(:url)
     end
 end

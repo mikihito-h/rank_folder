@@ -2,10 +2,6 @@ p
   strong
     | Url:
   = @url.url
-p
-  strong
-    | User:
-  = @url.user_id
 = link_to 'Edit', edit_url_path(@url)
 |  | 
 = link_to 'Back', urls_path
