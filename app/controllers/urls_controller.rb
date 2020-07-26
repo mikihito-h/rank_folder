@@ -4,7 +4,7 @@ class UrlsController < ApplicationController
   before_action :set_url, only: [:show, :destroy]
 
   def index
-    @urls = current_user.urls
+    @urls = current_user.urls.order(created_at: :desc)
   end
 
   def show
