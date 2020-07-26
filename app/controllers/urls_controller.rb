@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class UrlsController < ApplicationController
-  before_action :set_url, only: [:show, :edit, :update, :destroy]
+  before_action :set_url, only: [:show, :destroy]
 
   def index
-    @urls = current_user.urls
+    @urls = current_user.urls.order(created_at: :desc)
   end
 
   def show
@@ -15,23 +15,12 @@ class UrlsController < ApplicationController
     @url.keywords.build
   end
 
-  def edit
-  end
-
   def create
     @url = current_user.urls.new(url_params)
     if @url.save
       redirect_to @url, notice: "Urlを登録しました。"
     else
       render :new
-    end
-  end
-
-  def update
-    if @url.update(url_params)
-      redirect_to @url, notice: "Urlを更新しました。"
-    else
-      render :edit
     end
   end
 

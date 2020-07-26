@@ -7,6 +7,6 @@ p
     | 検索ワード: 
   = @url.keywords.first.keyword
 
-= link_to 'Edit', edit_url_path(@url)
+= link_to 'Destroy', @url, method: :delete, data: { confirm: 'Are you sure?' }
 |  | 
 = link_to 'Back', urls_path
