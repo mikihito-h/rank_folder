@@ -1,11 +1,12 @@
 p
   strong
-    | Url:
+    | URL: 
   = @url.url
 p
   strong
-    | User:
-  = @url.user_id
+    | 検索ワード: 
+  = @url.keywords.first.keyword
+
 = link_to 'Edit', edit_url_path(@url)
 |  | 
 = link_to 'Back', urls_path

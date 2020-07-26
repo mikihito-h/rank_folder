@@ -2,7 +2,7 @@
 
 require "test_helper"
 
-class UserTest < ActiveSupport::TestCase
+class KeywordTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
