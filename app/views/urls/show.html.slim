@@ -1,11 +1,17 @@
+h1 URL詳細
+
 p
   strong
     | URL: 
   = @url.url
 p
   strong
-    | 検索ワード: 
-  = @url.keywords.first.keyword
+    | 検索ワード
+  - if @keywords
+    - @keywords.each do |keyword|
+      ul
+        li = keyword.keyword
+
 
 = link_to 'Destroy', @url, method: :delete, data: { confirm: 'Are you sure?' }
 |  | 

@@ -69,7 +69,7 @@ jobs:
 
       - run:
           name: Test
-          command: bin/rails test
+          command: ./bin/test
 
 workflows:
   version: 2.1
