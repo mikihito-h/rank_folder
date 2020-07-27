@@ -1,9 +1,23 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  keyword: MyString
+keyword_1:
+  keyword: "Ruby スクール"
   url_id: 1
 
-two:
-  keyword: MyString
+keyword_2:
+  keyword: "プログラミング"
   url_id: 1
+
+keyword_3:
+  keyword: "Rails スクール"
+  url_id: 1
+
+keyword_4:
+  keyword: "筋トレ 動画"
+  url_id: 2
+
+keyword_5:
+  keyword: "表参道 ご飯"
+  url_id: 3
+
+keyword_6:
+  keyword: "渋谷 カフェ"
+  url_id: 3

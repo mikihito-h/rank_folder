@@ -3,45 +3,48 @@
 require "application_system_test_case"
 
 class UrlsTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @url = urls(:one)
+    @user = users(:user_1)
+    login_as(@user)
   end
 
-  test "visiting the index" do
-    visit urls_url
+  test "url一覧を表示する" do
+    visit urls_path
     assert_selector "h1", text: "Urls"
   end
 
-  test "creating a Url" do
-    visit urls_url
+  test "urlを新規登録する" do
+    visit urls_path
     click_on "New Url"
 
-    fill_in "Url", with: @url.url
-    fill_in "User", with: @url.user_id
+    fill_in "Url", with: "https://example.com"
+    fill_in "Keyword", with: "ruby スクール"
     click_on "Create Url"
 
-    assert_text "Url was successfully created"
+    assert_text "Urlを登録しました。"
     click_on "Back"
   end
 
-  test "updating a Url" do
-    visit urls_url
-    click_on "Edit", match: :first
-
-    fill_in "Url", with: @url.url
-    fill_in "User", with: @url.user_id
-    click_on "Update Url"
-
-    assert_text "Url was successfully updated"
-    click_on "Back"
+  test "urlの詳細画面を表示する" do
+    visit urls_path
+    click_on "Show", match: :first
+    assert_selector "h1", text: "URL詳細"
   end
 
-  test "destroying a Url" do
-    visit urls_url
+  test "urlを削除" do
+    visit urls_path
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
+    assert_text "Urlを削除しました。"
 
-    assert_text "Url was successfully destroyed"
+    visit urls_path
+    click_on "Show", match: :first
+    page.accept_confirm do
+      click_on "Destroy", match: :first
+    end
+    assert_text "Urlを削除しました。"
   end
 end

@@ -1,9 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  url: MyString
+url_1:
+  url: "https://example.com"
   user_id: 1
 
-two:
-  url: MyString
+url_2:
+  url: "https://example.com/home"
   user_id: 1
+
+url_3:
+  url: "https://example.com/index"
+  user_id: 2
