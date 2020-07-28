@@ -13,7 +13,8 @@
     = form.text_field :url
   .field
     = form.fields_for :keywords do |keyword|
-      = keyword.label :keyword
-      = keyword.text_field :keyword
+      = render 'keyword_fields', f: keyword
+    .links
+      = link_to_add_association '検索ワードを追加', form, :keywords
   .actions
     = form.submit
