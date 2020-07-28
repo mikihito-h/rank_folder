@@ -20,11 +20,12 @@ class UrlsTest < ApplicationSystemTestCase
     click_on "New Url"
 
     fill_in "Url", with: "https://example.com"
+    click_on "検索ワードを追加"
     fill_in "Keyword", with: "ruby スクール"
+    click_on "検索ワードを追加"
     click_on "Create Url"
 
     assert_text "Urlを登録しました。"
-    click_on "Back"
   end
 
   test "urlの詳細画面を表示する" do
