@@ -7,10 +7,9 @@ p
 p
   strong
     | 検索ワード
-  - if @keywords
-    - @keywords.each do |keyword|
-      ul
-        li = keyword.keyword
+    ul
+      - @url.keywords.each do |k|
+        li = k.keyword
 
 
 = link_to 'Destroy', @url, method: :delete, data: { confirm: 'Are you sure?' }
