@@ -4,14 +4,23 @@ p
   strong
     | URL: 
   = @url.url
-p
-  strong
-    | 検索ワード
-    ul
-      - @url.keywords.each do |k|
-        li = k.keyword
 
-
+- @url.keywords.each do |k|
+  p
+    strong
+      | 検索ワード 
+    = k.keyword
+  table
+    thead
+      tr
+        th 検索順位取得日
+        th 順位
+    tbody
+      - k.rankings.each do |r|
+        tr
+          td = r.created_at
+          td = r.rank
+br
 = link_to 'Destroy', @url, method: :delete, data: { confirm: 'Are you sure?' }
 |  | 
 = link_to 'Back', urls_path
