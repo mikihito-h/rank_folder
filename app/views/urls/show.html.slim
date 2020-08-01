@@ -13,12 +13,12 @@ p
   table
     thead
       tr
-        th 検索順位取得日
+        th 日付
         th 順位
     tbody
       - k.rankings.each do |r|
         tr
-          td = r.created_at
+          td = l r.created_at, format: :short
           td = r.rank
 br
 = link_to 'Destroy', @url, method: :delete, data: { confirm: 'Are you sure?' }
