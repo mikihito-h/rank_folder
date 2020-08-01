@@ -23,7 +23,7 @@ class UrlsTest < ApplicationSystemTestCase
     click_on "検索ワードを追加"
     fill_in "Keyword", with: "ruby スクール"
     click_on "検索ワードを追加"
-    click_on "Create Url"
+    click_on "登録する"
 
     assert_text "Urlを登録しました。"
   end

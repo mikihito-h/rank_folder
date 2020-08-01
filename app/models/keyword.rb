@@ -3,4 +3,5 @@
 class Keyword < ApplicationRecord
   belongs_to :url
   validates :keyword, presence: true
+  has_many :rankings, dependent: :destroy
 end

@@ -36,6 +36,7 @@ group :development do
   gem "rubocop-rails", require: false
   gem "html2slim"
   gem "letter_opener_web"
+  gem "i18n_generators"
 end
 
 group :test do
