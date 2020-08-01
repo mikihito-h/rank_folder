@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# require "#{Rails.root}/config/environment"
-
 desc "Google検索順位を保存"
 task create_rank: :environment do
   Keyword.all.each do |k|
