@@ -20,6 +20,7 @@ gem "devise-i18n"
 gem "slim-rails"
 gem "cocoon"
 gem "chartkick"
+gem "groupdate"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
