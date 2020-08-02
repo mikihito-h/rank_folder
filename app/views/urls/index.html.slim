@@ -4,13 +4,17 @@ table
   thead
     tr
       th
-        | Url
+        | URL
+      th
+        | 登録済み検索ワード数
       th[colspan="2"]
   tbody
     - @urls.each do |url|
       tr
         td
           = url.url
+        td
+          = url.keywords.count
         td
           = link_to 'Show', url
         td
