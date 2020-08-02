@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class KeywordsController < ApplicationController
   before_action :set_url, only: [:destroy]
   before_action :set_keyword, only: [:destroy]
@@ -15,5 +17,4 @@ class KeywordsController < ApplicationController
     def set_url
       @url = current_user.urls.find(params[:url_id])
     end
-
 end
