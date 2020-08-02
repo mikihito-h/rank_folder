@@ -5,7 +5,7 @@ p
     | URL: 
   = @url.url
 
-- @url.keywords.each do |k|
+- @keywords.each do |k|
   p
     strong
       | 検索ワード 
@@ -16,7 +16,7 @@ p
         th 日付
         th 順位
     tbody
-      - k.rankings.each do |r|
+      - k.rankings.order(created_at: :desc).each do |r|
         tr
           td = l r.created_at, format: :short
           td = r.rank
