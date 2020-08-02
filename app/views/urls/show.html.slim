@@ -10,6 +10,7 @@ p
     strong
       | 検索ワード 
     = k.keyword
+    = link_to 'Destroy', url_keyword_path(@url.id, k.id),  method: :delete, data: { confirm: "検索ワードを削除すると順位のデータも削除されます。\n検索ワードを削除しますか？" }
   table
     thead
       tr
@@ -21,6 +22,6 @@ p
           td = l r.created_at, format: :short
           td = r.rank
 br
-= link_to 'Destroy', @url, method: :delete, data: { confirm: 'Are you sure?' }
+= link_to 'Destroy', @url, method: :delete, data: { confirm: 'Are you sure?' }, id: "btn-destroy-url"
 |  | 
 = link_to 'Back', urls_path
