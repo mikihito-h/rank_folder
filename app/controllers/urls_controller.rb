@@ -8,6 +8,7 @@ class UrlsController < ApplicationController
   end
 
   def show
+    @keywords = @url.keywords.order(created_at: :desc)
   end
 
   def new
