@@ -10,6 +10,7 @@ p
     strong
       | 検索ワード 
     = k.keyword
+    = link_to 'Destroy', url_keyword_path(@url.id, k.id),  method: :delete, data: { confirm: "検索ワードを削除すると順位のデータも削除されます。\n検索ワードを削除しますか？" }
   table
     thead
       tr
