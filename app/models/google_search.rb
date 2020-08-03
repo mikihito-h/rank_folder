@@ -26,13 +26,13 @@ class GoogleSearch
       Net::HTTP.get_response(URI.parse("https://www.googleapis.com/customsearch/v1?key=#{@api_key}&cx=#{@cse_id}&#{encoded_keyword}&safe=off&num=10&start=#{start}"))
     end
 
-    def make_json(response_body)
-      JSON.parse(response_body)
+    def make_json(data)
+      JSON.parse(data)
     end
 
-    def extract_url(json_response_body)
-      if json_response_body["items"]
-        json_response_body["items"].map do |item|
+    def extract_url(json_data)
+      if json_data["items"]
+        json_data["items"].map do |item|
           item["link"]
         end
       else

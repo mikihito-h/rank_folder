@@ -7,7 +7,6 @@ class RankChecker
         return index
       end
     end
-    # 100位圏外のときは順位を0にする
     0
   end
 end
