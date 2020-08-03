@@ -17,6 +17,11 @@ class UrlsController < ApplicationController
       end
       { name: k.keyword, data: h }
     end
+
+    @number_of_rank_data = 0
+    @keywords.each do |k|
+      @number_of_rank_data += k.rankings.count
+    end
   end
 
   def new
