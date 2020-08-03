@@ -22,6 +22,9 @@ p
           td = l r.created_at, format: :short
           td = r.rank
 br
+- unless @number_of_rank_data == 0
+  = line_chart @line_chart_data, curve: false, suffix: "位"
+br
 = link_to 'Destroy', @url, method: :delete, data: { confirm: 'Are you sure?' }, id: "btn-destroy-url"
 |  | 
 = link_to 'Back', urls_path

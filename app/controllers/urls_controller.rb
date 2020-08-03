@@ -9,6 +9,19 @@ class UrlsController < ApplicationController
 
   def show
     @keywords = @url.keywords.order(created_at: :desc)
+
+    @line_chart_data = @keywords.map do |k|
+      h = Hash.new
+      k.rankings.each do |r|
+        h[l(r.created_at, format: :short)] = r.rank
+      end
+      { name: k.keyword, data: h }
+    end
+
+    @number_of_rank_data = 0
+    @keywords.each do |k|
+      @number_of_rank_data += k.rankings.count
+    end
   end
 
   def new
