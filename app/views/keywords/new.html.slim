@@ -1,0 +1,8 @@
+h1 検索ワード追加
+
+= form_with model: [@url, @keyword] do |form|
+  = form.label :keyword
+  = form.text_field :keyword
+  = form.submit
+
+= link_to '戻る', @url

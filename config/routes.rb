@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "urls#index"
   resources :urls, except: [:edit, :update] do
-    resources :keywords, only: [:destroy]
+    resources :keywords, only: [:destroy, :new, :create]
   end
 
   if Rails.env.development?
