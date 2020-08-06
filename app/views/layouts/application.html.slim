@@ -18,4 +18,8 @@ html
       = link_to 'アカウント設定', edit_user_registration_path
       p
         = current_user.email
+    - else
+      = link_to "ログイン", new_user_session_path
+      br
+      = link_to "アカウント登録", new_user_registration_path
     = yield
