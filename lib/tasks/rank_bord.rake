@@ -15,7 +15,7 @@ task create_rank: :environment do
       urls = []
     end
 
-    unless url_array.empty?
+    unless urls.empty?
       rank = RankChecker.new.find(urls, k.url.url)
     else
       rank = 0
