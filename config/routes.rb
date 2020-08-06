@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     namespace "v1" do
       resources :ranks, only: [:index]
     end
+    get "reference", to: "reference#index"
   end
 end
