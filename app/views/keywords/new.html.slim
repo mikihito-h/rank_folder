@@ -1,8 +1,20 @@
-h1 検索ワード追加
+main.page
+  header.page-header
+    .container
+      .page-header__innner
+        h2.page-header__title 検索ワード追加
+        .page-header-actions
+          = link_to '戻る', urls_path, class: "btn btn-secondary page-header__back-btn"
 
-= form_with model: [@url, @keyword] do |form|
-  = form.label :keyword
-  = form.text_field :keyword
-  = form.submit
-
-= link_to '戻る', @url
+  .page-body
+    .container
+      h3.page-body__title URL
+      h4.page-body__title-url = @url.url
+      .form
+        = form_with model: [@url, @keyword], local: true do |form|
+          .form-group
+            = form.label :keyword
+            = form.text_field :keyword, class: "form-control"
+            br
+            = form.submit "追加する" , class: "btn btn-primary"
+ 

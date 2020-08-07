@@ -1,1 +1,59 @@
-h1 APIリファレンス
+main.page
+  header.page-header
+    .container
+      .page-header__innner
+        h2.page-header__title APIリファレンス
+
+  .page-body
+    .container
+      .api-reference-content
+        p.short-api-text 当サイト（RankBoard）で取得したデータをご利用になれます。
+        - if user_signed_in?
+          .alert.alert-warning.your-api-key
+            | 
+              あなたのAPIキーは  
+            = current_user.api_key
+            |   です。
+
+        h3 リクエストURL
+        p.request-url
+          | https://rankboard.xyz/api/v1/ranks.json?api_key=
+          span
+            | [APIキー]
+
+        h3 HTTPメソッド
+        p GET
+
+        h3 リクエストパラメータ
+        p APIキー（必須）
+
+        h3 レスポンスフォーマット
+        p json
+
+        h3 レスポンスサンプル
+        pre.response_sample
+          |
+            {
+              "https://example.com": {
+                "Google 検索順位": {
+                  "2020/08/12": 5,
+                  "2020/08/11": 3,
+                  "2020/08/10": 4,
+                  "2020/08/09": 8,
+                  "2020/08/08": 1,
+                  "2020/08/07": 2
+                },
+                "検索順位チェック": {
+                  "2020/08/12": 1,
+                  "2020/08/11": 3,
+                  "2020/08/10": 2,
+                }
+              },
+              "https://example.com/home": {
+                "検索順位チェックサービス": {
+                  "2020/08/12": 1,
+                  "2020/08/11": 3,
+                  "2020/08/10": 2,
+                }
+              }
+            }

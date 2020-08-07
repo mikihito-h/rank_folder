@@ -1,0 +1,38 @@
+.page-body {
+  min-height: 100%;
+}
+
+.page-body__title {
+  position: relative;
+  top: 181px;
+  left: 45px;
+  font-size: 20px;
+  color: rgb(117, 116, 116);
+}
+
+.page-body__title-url {
+  position: relative;
+  top: 148px;
+  left: 110px;
+  font-size: 20px;
+  display: inline-block;
+  max-width: 75%;
+  overflow: scroll;
+}
+
+.page-body-bottom {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.update-profile-button {
+  display: block;
+  margin: 40px auto;
+  width: 140px;
+}
+
+.delete-account-button {
+  display: block;
+  margin: 0 auto;
+}

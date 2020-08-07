@@ -1,2 +1,41 @@
-h1 ランディングページです
+.welcome
+  .firstview
+    h1.firstview__title RankBoard
+    h2.firstview__subtitile Google検索順位チェックサービス 
+    .firstview__signup
+      = link_to "アカウント登録（無料）", new_user_registration_path, class: "btn btn-primary"
 
+  .welcome__section
+    .welcome__features
+      .welcome-feature
+        .welcome-feature__image
+          = image_tag "robot.svg", size:'220x220'
+        .welcome-feature__body
+          h1.welcome-feature__header
+            | 毎日自動で取得
+          p.welcome-feature__description
+            | 毎朝６時に自動でGoogle検索順位を取得します。
+
+      .welcome-feature
+        .welcome-feature__image
+          = image_tag "developper.svg", size:'220x220'
+        .welcome-feature__body
+          h1.welcome-feature__header
+            | APIを提供
+          p.welcome-feature__description
+            | 当サイトで取得した自分のデータを
+            br
+            | 自由に利用できます。
+            br
+            = link_to 'APIリファレンスを確認', api_reference_path
+
+      .welcome-feature
+        .welcome-feature__image
+          = image_tag "chart.svg", size:'220x220'
+        .welcome-feature__body
+          h1.welcome-feature__header
+            | チャートで見れる
+          p.welcome-feature__description
+            | 今までの順位をチャートで確認できます。
+
+= render "footer"

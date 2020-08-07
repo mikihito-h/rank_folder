@@ -1,4 +1,12 @@
-h1
-  | New Url
-= render 'form', url: @url
-= link_to 'Back', urls_path
+main.page
+  header.page-header
+    .container
+      .page-header__innner
+        h2.page-header__title URL新規登録
+        .page-header-actions
+          = link_to '戻る', urls_path, class: "btn btn-secondary"
+
+  .page-body
+    .container
+      .form
+        = render 'form', url: @url

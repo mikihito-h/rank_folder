@@ -1,0 +1,39 @@
+.firstview {
+  text-align: center;
+  margin: 0 auto;
+  // background-color: #f9fafe;
+  height: 400px;
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+.firstview__title {
+  font-weight: 600;
+  font-size: 65px;
+  padding-top: 110px;
+  padding-bottom: 8px;
+}
+
+.firstview__subtitile {
+  font-weight: 250;
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.welcome__features {
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.welcome-feature {
+  width: 370px;
+  margin: 0 20px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.welcome-feature__header {
+  font-size: 28px;
+  padding-bottom: 7px;
+}

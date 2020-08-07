@@ -1,0 +1,17 @@
+header.header
+  h1.header__title
+    = link_to "RankBoard", root_path, class: "header__title--link text-decoration-none"
+  - if user_signed_in?
+    .dropdown.dropleft
+      button#dropdownMenuButton.btn.btn-secondary.btn-sm.dropdown-toggle[type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+        |  Menu
+      .dropdown-menu[aria-labelledby="dropdownMenuButton"]
+        = link_to 'APIリファレンス', api_reference_path, class: "dropdown-item"
+        = link_to '登録情報変更', edit_user_registration_path, class: "dropdown-item"
+        = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item"
+  - else
+    .header-nav__items
+      .header-nav__item
+        = link_to "アカウント登録", new_user_registration_path, class: "btn btn-primary btn-sm"
+      .header-nav__item
+        = link_to "ログイン", new_user_session_path, class: "btn btn-outline-light btn-sm header__login-button"

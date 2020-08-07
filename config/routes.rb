@@ -17,4 +17,7 @@ Rails.application.routes.draw do
     end
     get "reference", to: "reference#index"
   end
+
+  get "tos" => "welcome#tos"
+  get "policy" => "welcome#policy"
 end
