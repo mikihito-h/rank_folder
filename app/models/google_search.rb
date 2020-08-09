@@ -41,13 +41,11 @@ class GoogleSearch
     end
 
     def get_100_urls(json_response_body, urls, encoded_keyword)
-      while json_response_body["queries"]["nextPage"][0]["startIndex"] <= 91
-        start_index = json_response_body["queries"]["nextPage"][0]["startIndex"]
+      while (start_index = json_response_body.dig(:queries, :nextPage, 0, :startIndex)) && start_index <= 91
         response = request_to_google(start_index, encoded_keyword)
         break unless response.code == "200"
         json_response_body = make_json(response.body)
         urls += extract_url(json_response_body)
-        break unless json_response_body["queries"]["nextPage"]
       end
     end
 end
