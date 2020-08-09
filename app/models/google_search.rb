@@ -26,7 +26,7 @@ class GoogleSearch
       Net::HTTP.get_response(URI.parse("https://www.googleapis.com/customsearch/v1?#{parameters}"))
     end
 
-    def extract_url(json_data)
+    def extract_urls(json_data)
       if json_data["items"]
         json_data["items"].map do |item|
           item["link"]
