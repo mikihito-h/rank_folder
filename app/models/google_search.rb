@@ -12,8 +12,12 @@ class GoogleSearch
   def urls(keyword)
     start_index = 1
     response = request_to_google(start_index, keyword)
-    json_response_body = JSON.parse(response.body)
-    urls = extract_url(json_response_body)
+    if response.code == "200"
+      json_response_body = JSON.parse(response.body)
+      urls = extract_url(json_response_body)
+    else
+      urls = []
+    end
     if response.code == "200" && json_response_body["queries"]["nextPage"]
       get_100_urls(json_response_body, urls, encoded_keyword)
     end
