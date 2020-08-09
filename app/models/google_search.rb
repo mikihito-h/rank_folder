@@ -10,8 +10,7 @@ class GoogleSearch
   end
 
   def urls(keyword)
-    start_index = 1
-    response = request_to_google(start_index, keyword)
+    response = request_to_google(keyword)
     if response.code == "200"
       json_response_body = JSON.parse(response.body)
       urls = extract_url(json_response_body)
@@ -25,7 +24,7 @@ class GoogleSearch
   end
 
   private
-    def request_to_google(start_index, keyword)
+    def request_to_google(keyword, start_index = 1)
       parameters = URI.encode_www_form([["key", @api_key], ["cx", @cse_id], ["q", keyword], ["safe", "off"], ["num", 10], ["start", start_index]])
       Net::HTTP.get_response(URI.parse("https://www.googleapis.com/customsearch/v1?#{parameters}"))
     end
@@ -42,7 +41,7 @@ class GoogleSearch
 
     def get_100_urls(json_response_body, urls, keyword)
       while (start_index = json_response_body.dig(:queries, :nextPage, 0, :startIndex)) && start_index <= 91
-        response = request_to_google(start_index, keyword)
+        response = request_to_google(keyword, start_index)
         break unless response.code == "200"
         json_response_body = make_json(response.body)
         urls += extract_url(json_response_body)
