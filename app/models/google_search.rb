@@ -46,8 +46,7 @@ class GoogleSearch
         response = request_to_google(start_index, encoded_keyword)
         break unless response.code == "200"
         json_response_body = make_json(response.body)
-        urls << extract_url(json_response_body)
-        urls.flatten!
+        urls += extract_url(json_response_body)
         break unless json_response_body["queries"]["nextPage"]
       end
     end
