@@ -21,6 +21,6 @@ task create_rank: :environment do
       rank = 0
     end
 
-    Ranking.create(rank: rank, keyword_id: k.id)
+    k.rankings.create!(rank: rank)
   end
 end
