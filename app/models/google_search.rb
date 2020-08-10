@@ -13,7 +13,7 @@ class GoogleSearch
     response = request_to_google(keyword)
     if response.code == "200"
       json_response_body = JSON.parse(response.body)
-      urls = extract_url(json_response_body)
+      urls = extract_urls(json_response_body)
     else
       urls = []
     end
@@ -45,7 +45,7 @@ class GoogleSearch
         response = request_to_google(keyword, start_index)
         break unless response.code == "200"
         json_response_body = make_json(response.body)
-        urls += extract_url(json_response_body)
+        urls += extract_urls(json_response_body)
       end
     end
 end
