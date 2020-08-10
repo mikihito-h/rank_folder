@@ -2,9 +2,9 @@
 
 desc "Google検索順位を保存"
 task create_rank: :environment do
-  Keyword.all.each do |k|
+  Keyword.all.each do |keyword|
     begin
-      urls =  GoogleSearch.new.fetch_urls(k.keyword)
+      urls =  GoogleSearch.new.fetch_urls(keyword.keyword)
     rescue => e
       puts e.full_message
       Rails.logger.error e.full_message
@@ -13,11 +13,11 @@ task create_rank: :environment do
     end
 
     if urls.present?
-      rank = RankChecker.new.find_rank(urls, k.url.url)
+      rank = RankChecker.new.find_rank(urls, keyword.url.url)
     else
       rank = 0
     end
 
-    k.rankings.create!(rank: rank)
+    keyword.rankings.create!(rank: rank)
   end
 end
