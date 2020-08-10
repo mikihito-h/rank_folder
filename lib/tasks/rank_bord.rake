@@ -6,11 +6,8 @@ task create_rank: :environment do
     begin
       urls =  GoogleSearch.new.fetch_urls(k.keyword)
     rescue => e
-      puts "エラークラス: #{e.class}"
-      puts "エラーメッセージ: #{e.message}"
-      puts "バックトレース ------------"
-      puts e.backtrace
-      puts "---------------------------"
+      puts e.full_message
+      Rails.logger.error e.full_message
 
       urls = []
     end
