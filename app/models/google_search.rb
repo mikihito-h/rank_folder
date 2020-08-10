@@ -25,8 +25,9 @@ class GoogleSearch
 
   private
     def request_to_google(keyword, start_index = 1)
-      parameters = URI.encode_www_form([["key", @api_key], ["cx", @cse_id], ["q", keyword], ["safe", "off"], ["num", 10], ["start", start_index]])
-      Net::HTTP.get_response(URI.parse("https://www.googleapis.com/customsearch/v1?#{parameters}"))
+      query = URI.encode_www_form([["key", @api_key], ["cx", @cse_id], ["q", keyword], ["safe", "off"], ["num", 10], ["start", start_index]])
+      built_url = URI::HTTPS.build({ host: "www.googleapis.com", path: "/customsearch/v1", query: query })
+      Net::HTTP.get_response(built_url)
     end
 
     def extract_urls(json_data)
