@@ -23,6 +23,14 @@ class GoogleSearch
     urls
   end
 
+  def find_rank(urls, registered_url)
+    index = urls.index { |url| url == registered_url || url == registered_url + "/" }
+    if index
+      return index + 1
+    end
+    0
+  end
+
   private
     def request_to_google(keyword, start_index = 1)
       query = URI.encode_www_form([["key", @api_key], ["cx", @cse_id], ["q", keyword], ["safe", "off"], ["num", 10], ["start", start_index]])

@@ -13,7 +13,7 @@ task create_rank: :environment do
     end
 
     if urls.present?
-      rank = RankChecker.new.find_rank(urls, keyword.url.url)
+      rank = GoogleSearch.new.find_rank(urls, keyword.url.url)
     else
       rank = 0
     end
