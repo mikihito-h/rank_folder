@@ -9,7 +9,7 @@ class GoogleSearch
     @cse_id = ENV["GOOGLE_CSE_ID"]
   end
 
-  def urls(keyword)
+  def fetch_urls(keyword)
     response = request_to_google(keyword)
     if response.code == "200"
       json_response_body = JSON.parse(response.body)

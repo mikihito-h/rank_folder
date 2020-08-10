@@ -4,7 +4,7 @@ desc "Google検索順位を保存"
 task create_rank: :environment do
   Keyword.all.each do |k|
     begin
-      urls =  GoogleSearch.new.urls(k.keyword)
+      urls =  GoogleSearch.new.fetch_urls(k.keyword)
     rescue => e
       puts "エラークラス: #{e.class}"
       puts "エラーメッセージ: #{e.message}"
