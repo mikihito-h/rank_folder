@@ -41,7 +41,7 @@ class Keyword < ApplicationRecord
         urls = []
       end
       if response.code == "200" && json_response_body["queries"]["nextPage"]
-        get_100_urls(json_response_body, urls, keyword)
+        urls = get_100_urls(json_response_body, urls, keyword)
       end
       urls
     end
@@ -71,11 +71,12 @@ class Keyword < ApplicationRecord
     end
 
     def get_100_urls(json_response_body, urls, keyword)
-      while (start_index = json_response_body.dig(:queries, :nextPage, 0, :startIndex)) && start_index <= 91
+      while (start_index = json_response_body.dig("queries", "nextPage", 0, "startIndex")) && start_index <= 91
         response = request_to_google(keyword, start_index)
         break unless response.code == "200"
         json_response_body = JSON.parse(response.body)
         urls += extract_urls(json_response_body)
       end
+      urls
     end
 end
