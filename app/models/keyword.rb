@@ -16,7 +16,7 @@ class Keyword < ApplicationRecord
     begin
       urls =  fetch_urls(self.keyword)
       if urls.present?
-        rank = find_rank(urls, self.url.url)
+        rank = get_rank(urls, self.url.url)
       else
         rank = 0
       end
@@ -46,7 +46,7 @@ class Keyword < ApplicationRecord
       urls
     end
 
-    def find_rank(urls, registered_url)
+    def get_rank(urls, registered_url)
       index = urls.index { |url| url == registered_url || url == registered_url + "/" }
       if index
         return index + 1
