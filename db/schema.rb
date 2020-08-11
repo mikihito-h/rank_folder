@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_30_202013) do
+ActiveRecord::Schema.define(version: 2020_08_11_023955) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_202013) do
     t.bigint "keyword_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "rank_acquisition_date", null: false
     t.index ["keyword_id"], name: "index_rankings_on_keyword_id"
   end
 
