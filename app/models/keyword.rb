@@ -8,22 +8,22 @@ class Keyword < ApplicationRecord
 
   def self.create_rank
     Keyword.all.each do |keyword|
-      keyword.create_rank
+      begin
+        keyword.create_rank
+      rescue => e
+        puts e.full_message
+        Rails.logger.error e.full_message
+        next
+      end
     end
   end
 
   def create_rank
-    begin
-      urls =  fetch_urls(self.keyword)
-      if urls.present?
-        rank = get_rank(urls, self.url.url)
-      else
-        rank = 0
-      end
-    rescue => e
-      puts e.full_message
-      Rails.logger.error e.full_message
+    urls =  fetch_urls(self.keyword)
 
+    if urls.present?
+      rank = get_rank(urls, self.url.url)
+    else
       rank = 0
     end
 
