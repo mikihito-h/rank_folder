@@ -15,7 +15,7 @@ class Keyword < ApplicationRecord
   end
 
   def create_rank
-    urls =  fetch_urls(self.keyword)
+    urls =  fetch_urls
 
     if urls.present?
       rank = get_rank(urls, self.url.url)
@@ -31,8 +31,8 @@ class Keyword < ApplicationRecord
   end
 
   private
-    def fetch_urls(keyword)
-      response = request_to_google(keyword)
+    def fetch_urls
+      response = request_to_google
       if response.code == "200"
         json_response_body = JSON.parse(response.body)
         urls = extract_urls(json_response_body)
@@ -40,7 +40,7 @@ class Keyword < ApplicationRecord
         urls = []
       end
       if response.code == "200" && json_response_body["queries"]["nextPage"]
-        urls = get_100_urls(json_response_body, urls, keyword)
+        urls = get_100_urls(json_response_body, urls)
       end
       urls
     end
@@ -53,8 +53,8 @@ class Keyword < ApplicationRecord
       0
     end
 
-    def request_to_google(keyword, start_index = 1)
-      query = URI.encode_www_form([["key", ENV["GOOGLE_API_KEY"]], ["cx", ENV["GOOGLE_CSE_ID"]], ["q", keyword], ["safe", "off"], ["num", 10], ["start", start_index]])
+    def request_to_google(start_index = 1)
+      query = URI.encode_www_form([["key", ENV["GOOGLE_API_KEY"]], ["cx", ENV["GOOGLE_CSE_ID"]], ["q", self.keyword], ["safe", "off"], ["num", 10], ["start", start_index]])
       built_url = URI::HTTPS.build({ host: "www.googleapis.com", path: "/customsearch/v1", query: query })
       Net::HTTP.get_response(built_url)
     end
@@ -69,9 +69,9 @@ class Keyword < ApplicationRecord
       end
     end
 
-    def get_100_urls(json_response_body, urls, keyword)
+    def get_100_urls(json_response_body, urls)
       while (start_index = json_response_body.dig("queries", "nextPage", 0, "startIndex")) && start_index <= 91
-        response = request_to_google(keyword, start_index)
+        response = request_to_google(start_index)
         break unless response.code == "200"
         json_response_body = JSON.parse(response.body)
         urls += extract_urls(json_response_body)
