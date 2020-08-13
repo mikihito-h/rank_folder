@@ -5,7 +5,6 @@ class Keyword < ApplicationRecord
   validates :keyword, presence: true
   has_many :rankings, dependent: :destroy
 
-
   def self.create_rank
     Keyword.all.each do |keyword|
       keyword.create_rank
@@ -31,7 +30,6 @@ class Keyword < ApplicationRecord
       self.rankings.create!(rank: rank, rank_acquisition_date: Date.current)
     end
   end
-
 
   private
     def fetch_urls(keyword)
