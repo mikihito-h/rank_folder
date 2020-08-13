@@ -6,12 +6,11 @@ class Keyword < ApplicationRecord
   has_many :rankings, dependent: :destroy
 
   def self.create_rank
-    Keyword.all.each do |keyword|
+    all.each do |keyword|
       keyword.create_rank
     rescue => e
       puts e.full_message
       Rails.logger.error e.full_message
-      next
     end
   end
 
