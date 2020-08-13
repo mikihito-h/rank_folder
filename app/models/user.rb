@@ -7,4 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :urls, dependent: :destroy
+  has_secure_token :api_key
 end

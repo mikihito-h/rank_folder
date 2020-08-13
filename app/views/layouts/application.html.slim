@@ -12,8 +12,15 @@ html
       = notice
     p.alert
       = alert
+    = link_to 'APIリファレンス', api_reference_path
     - if user_signed_in?
       = link_to 'ログアウト', destroy_user_session_path, method: :delete
+      br
+      = link_to 'アカウント設定', edit_user_registration_path
       p
         = current_user.email
+    - else
+      = link_to "ログイン", new_user_session_path
+      br
+      = link_to "アカウント登録", new_user_registration_path
     = yield

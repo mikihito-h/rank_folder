@@ -4,23 +4,27 @@ p
   strong
     | URL: 
   = @url.url
-
-- @url.keywords.each do |k|
+= link_to '検索ワードを追加', new_url_keyword_path(@url)
+- @keywords.each do |k|
   p
     strong
       | 検索ワード 
     = k.keyword
+    = link_to 'Destroy', url_keyword_path(@url.id, k.id),  method: :delete, data: { confirm: "検索ワードを削除すると順位のデータも削除されます。\n検索ワードを削除しますか？" }
   table
     thead
       tr
         th 日付
         th 順位
     tbody
-      - k.rankings.each do |r|
+      - k.rankings.order(created_at: :desc).each do |r|
         tr
           td = l r.created_at, format: :short
           td = r.rank
 br
-= link_to 'Destroy', @url, method: :delete, data: { confirm: 'Are you sure?' }
+- unless @number_of_rank_data == 0
+  = line_chart @line_chart_data, curve: false, suffix: "位"
+br
+= link_to 'Destroy', @url, method: :delete, data: { confirm: 'Are you sure?' }, id: "btn-destroy-url"
 |  | 
 = link_to 'Back', urls_path

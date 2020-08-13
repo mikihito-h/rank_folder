@@ -44,7 +44,7 @@ class UrlsTest < ApplicationSystemTestCase
     visit urls_path
     click_on "Show", match: :first
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_link "btn-destroy-url"
     end
     assert_text "Urlを削除しました。"
   end
