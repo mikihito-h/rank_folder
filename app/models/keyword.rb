@@ -51,8 +51,8 @@ class Keyword < ApplicationRecord
     end
 
     def request_to_google(start_index = 1)
-      query = URI.encode_www_form([["key", ENV["GOOGLE_API_KEY"]], ["cx", ENV["GOOGLE_CSE_ID"]], ["q", self.keyword], ["safe", "off"], ["num", 10], ["start", start_index]])
-      built_url = URI::HTTPS.build({ host: "www.googleapis.com", path: "/customsearch/v1", query: query })
+      query = URI.encode_www_form(key: ENV["GOOGLE_API_KEY"], cx: ENV["GOOGLE_CSE_ID"], q: self.keyword, safe: "off", num: 10, start: start_index)
+      built_url = URI::HTTPS.build(host: "www.googleapis.com", path: "/customsearch/v1", query: query)
       Net::HTTP.get_response(built_url)
     end
 
