@@ -8,13 +8,11 @@ class Keyword < ApplicationRecord
 
   def self.create_rank
     Keyword.all.each do |keyword|
-      begin
-        keyword.create_rank
-      rescue => e
-        puts e.full_message
-        Rails.logger.error e.full_message
-        next
-      end
+      keyword.create_rank
+    rescue => e
+      puts e.full_message
+      Rails.logger.error e.full_message
+      next
     end
   end
 
