@@ -47,10 +47,7 @@ class Keyword < ApplicationRecord
 
     def get_rank(urls, registered_url)
       index = urls.index { |url| url == registered_url || url == registered_url + "/" }
-      if index
-        return index + 1
-      end
-      0
+      index ? index + 1 : 0
     end
 
     def request_to_google(start_index = 1)
