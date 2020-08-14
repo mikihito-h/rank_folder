@@ -23,7 +23,7 @@ class Keyword < ApplicationRecord
       rank = 0
     end
 
-    ranking = self.rankings.find_or_initialize_by(rank_acquisition_date: Date.current)
+    ranking = self.rankings.find_or_initialize_by(acquired_on: Date.current)
     ranking.rank = rank
     ranking.save!
   end
