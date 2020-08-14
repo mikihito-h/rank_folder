@@ -35,9 +35,10 @@ class Keyword < ApplicationRecord
         json_response_body = JSON.parse(response.body)
         urls = extract_urls(json_response_body)
       else
-        urls = []
+        Rails.logger.error "Google Custom Search APIのレスポンスがエラーでした。\nレスポンスコード: #{response.code}\nレスポンスボディー: #{response.body}"
+        return []
       end
-      if response.code == "200" && json_response_body["queries"]["nextPage"]
+      if json_response_body["queries"]["nextPage"]
         urls = get_100_urls(json_response_body, urls)
       end
       urls
