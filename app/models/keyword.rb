@@ -23,11 +23,9 @@ class Keyword < ApplicationRecord
       rank = 0
     end
 
-    if rank_of_the_same_date = self.rankings.find_by(rank_acquisition_date: Date.current)
-      rank_of_the_same_date.update!(rank: rank)
-    else
-      self.rankings.create!(rank: rank, rank_acquisition_date: Date.current)
-    end
+    ranking = self.rankings.find_or_initialize_by(rank_acquisition_date: Date.current)
+    ranking.rank = rank
+    ranking.save!
   end
 
   private
