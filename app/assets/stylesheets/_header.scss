@@ -1,0 +1,36 @@
+.header {
+  background-color: #24292e;
+  display: flex;
+  height: 50px;
+  justify-content:space-between;
+  min-width: 488px;
+}
+
+.header__title {
+  font-size: 1.7rem;
+  line-height: 50px;
+  margin-left: 50px;
+}
+
+.header__title--link {
+  color: white;
+}
+
+.dropdown {
+  line-height: 50px;
+  margin-right: 50px;
+}
+
+.header-nav__items {
+  display: flex;
+  justify-content:space-between;
+}
+
+.header-nav__item {
+  line-height: 50px;
+  margin-right: 20px;
+}
+
+.header__login-button {
+  color: white;
+}

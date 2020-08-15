@@ -1,20 +1,16 @@
 = form_with(model: url, local: true) do |form|
   - if url.errors.any?
-    #error_explanation
-      h2
-        = pluralize(url.errors.count, "error")
-        |  prohibited this url from being saved:
-      ul
-        - url.errors.full_messages.each do |message|
-          li
-            = message
-  .field
+    ul
+      - url.errors.full_messages.each do |message|
+        li
+          = message
+  .field.form-group
     = form.label :url
-    = form.text_field :url
-  .field
+    = form.text_field :url, class: "form-control"
+  .field.form-group
     = form.fields_for :keywords do |keyword|
       = render 'keyword_fields', f: keyword
     .links
       = link_to_add_association '検索ワードを追加', form, :keywords
   .actions
-    = form.submit
+    = form.submit nil, class: "btn btn-primary"

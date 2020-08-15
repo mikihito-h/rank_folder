@@ -1,0 +1,47 @@
+.api-reference-content {
+  // background-color: tomato;
+  padding-top: 100px;
+  padding-bottom: 30px;
+
+  > h3 {
+    font-size: 21px;
+    margin-left: 70px;
+    margin-bottom: 20px;
+    color: #A82400;
+  }
+
+  > p {
+    margin-left: 150px;
+    margin-bottom: 40px;
+
+    > span {
+      color: red;
+    }
+  }
+
+
+}
+
+.response_sample {
+  background-color: rgb(230, 229, 229);
+  width: 80%;
+  margin: 20px auto;
+}
+
+.request-url {
+  background-color: rgb(230, 229, 229);
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.your-api-key {
+  width: 75%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.short-api-text {
+  size: 14px;
+  color: rgb(145, 143, 143);
+  margin: 0 auto;
+}

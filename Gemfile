@@ -20,6 +20,8 @@ gem "devise-i18n"
 gem "slim-rails"
 gem "cocoon"
 gem "chartkick"
+gem "bootstrap", "~> 4.5.0"
+gem "jquery-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

@@ -1,0 +1,26 @@
+main.page
+  header.page-header
+    .container
+      .page-header__innner
+        h2.page-header__title ログイン
+  .page-body
+    .container.login-form
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field.form-group
+          = f.label :email
+          br
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
+        .field.form-group
+          = f.label :password
+          br
+          = f.password_field :password, autocomplete: "current-password", class: "form-control"
+        - if devise_mapping.rememberable?
+          .field.form-group
+            = f.check_box :remember_me  
+            = f.label :remember_me
+        .actions
+          = f.submit t('.sign_in'), class: "btn btn-primary"
+      br
+      = link_to "パスワードを忘れましたか？", new_password_path(resource_name)
+      br
+      = link_to "アカウント確認のメールを受け取っていませんか?", new_confirmation_path(resource_name)

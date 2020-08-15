@@ -1,0 +1,15 @@
+main.page
+  header.page-header
+    .container
+      .page-header__innner
+        h2.page-header__title パスワードを忘れましたか？
+  .page-body
+    .container.devise-form
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field.form-group
+          = f.label :email
+          br
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
+        .actions
+          = f.submit t('.send_me_reset_password_instructions'), class: "btn btn-primary"

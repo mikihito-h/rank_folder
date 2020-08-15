@@ -1,23 +1,28 @@
-h1
-  | Urls
-table
-  thead
-    tr
-      th
-        | URL
-      th
-        | 登録済み検索ワード数
-      th[colspan="2"]
-  tbody
-    - @urls.each do |url|
-      tr
-        td
-          = url.url
-        td
-          = url.keywords.count
-        td
-          = link_to 'Show', url
-        td
-          = link_to 'Destroy', url, method: :delete, data: { confirm: 'Are you sure?' }
-br
-= link_to 'New Url', new_url_path
+main.page
+  header.page-header
+    .container
+      .page-header__innner
+        h2.page-header__title URL一覧
+        .page-header-actions
+          = link_to 'URL追加', new_url_path, class: "btn btn-primary"
+
+  .page-body
+    .container
+      .url-table
+        table.table.table-striped
+          thead.table-info
+            tr
+              th
+                | URL
+              th
+                | 検索ワード数
+              th[colspan="1"]
+          tbody
+            - @urls.each do |url|
+              tr
+                td.table__url
+                  = url.url
+                td
+                  = url.keywords.count
+                td
+                  = link_to '詳細', url

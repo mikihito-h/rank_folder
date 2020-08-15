@@ -1,0 +1,26 @@
+.footer {
+  background-color: #f9fafe;
+  height: 100px;
+
+}
+
+.footer-nav__items {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  line-height: 100px;
+}
+
+.footer-nav__item {
+  margin: 0 40px;
+}
+
+.footer-nav__link {
+  color: rgb(128, 127, 127);
+  font-size: 13px;
+
+  &:hover {
+    text-decoration: none;
+    color: rgb(128, 127, 127);
+  }
+}
