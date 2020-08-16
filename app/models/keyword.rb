@@ -16,12 +16,7 @@ class Keyword < ApplicationRecord
 
   def create_rank
     urls =  fetch_urls
-    if urls.present?
-      rank = get_rank(urls, self.url.url)
-    else
-      rank = 0
-    end
-
+    rank = urls.present? ? get_rank(urls, self.url.url) : 0
     ranking = self.rankings.find_or_initialize_by(acquired_on: Date.current)
     ranking.rank = rank
     ranking.save!
