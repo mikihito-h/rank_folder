@@ -28,16 +28,13 @@ class Keyword < ApplicationRecord
       urls = []
       begin
         response = request_to_google(start_index)
-        json_response_body = JSON.parse(response.body)
-
         if response.code != "200"
           Rails.logger.error "Google Custom Search APIのレスポンスがエラーでした。\nレスポンスコード: #{response.code}\nレスポンスボディー: #{response.body}"
           break
-        elsif extract_urls(json_response_body) == []
-          break
         end
-
-        urls += extract_urls(json_response_body)
+        json_response_body = JSON.parse(response.body)
+        break if (extracted_urls = extract_urls(json_response_body)) == []
+        urls += extracted_urls
       end while (start_index = json_response_body.dig("queries", "nextPage", 0, "startIndex")) && start_index <= 91
       urls
     end
