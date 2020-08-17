@@ -51,12 +51,8 @@ class Keyword < ApplicationRecord
     end
 
     def extract_urls(json_data)
-      if json_data["items"]
-        json_data["items"].map do |item|
-          item["link"]
-        end
-      else
-        []
+      Array(json_data["items"]).map do |item|
+        item["link"]
       end
     end
 end
