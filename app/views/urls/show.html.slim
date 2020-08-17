@@ -9,6 +9,8 @@ main.page
 
   .page-body
     .container
+      .alert.alert-secondary.page-body__specification
+        p 入力された検索ワードで検索した時の、対象URLの100位までの順位を毎朝６時に取得します。100位圏外の時やエラーにより順位を取得できなかった時の順位は「０」になります。
       h3.page-body__title URL
       h4.page-body__title-url = @url.url
       .rank-cards

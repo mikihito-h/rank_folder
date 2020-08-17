@@ -36,3 +36,17 @@
   display: block;
   margin: 0 auto;
 }
+
+.page-body__specification {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  top: 150px;
+  background-color: rgb(238, 238, 238);
+
+  p {
+    color: rgb(145, 143, 143);
+    font-size: 14px;
+    margin-bottom: 0px;
+  }
+}
