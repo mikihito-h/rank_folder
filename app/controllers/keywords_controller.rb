@@ -3,6 +3,7 @@
 class KeywordsController < ApplicationController
   before_action :set_url, only: [:destroy, :new, :create]
   before_action :set_keyword, only: [:destroy]
+  before_action :check_number_of_keywords, only: [:create]
 
   def new
     @keyword = Keyword.new
@@ -33,5 +34,11 @@ class KeywordsController < ApplicationController
 
     def keyword_params
       params.require(:keyword).permit(:keyword)
+    end
+
+    def check_number_of_keywords
+      if number_of_keywords >= 5
+        redirect_to @url, flash: {alert: "検索ワードを追加できませんでした。登録できる検索ワードは合計5個までです。"}
+      end
     end
 end
