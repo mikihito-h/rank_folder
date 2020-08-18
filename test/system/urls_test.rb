@@ -17,9 +17,9 @@ class UrlsTest < ApplicationSystemTestCase
     visit urls_path
     click_on "URL追加"
 
-    fill_in "Url", with: "https://example.com"
+    fill_in "URL", with: "https://example.com"
     click_on "検索ワードを追加"
-    fill_in "Keyword", with: "ruby スクール"
+    fill_in "検索ワード", with: "ruby スクール"
     click_on "検索ワードを追加"
     click_on "登録する"
 
@@ -62,7 +62,7 @@ class UrlsTest < ApplicationSystemTestCase
     click_on "検索ワード追加"
 
     assert_difference "Keyword.count", 1 do
-      fill_in "Keyword", with: "表参道 ランチ"
+      fill_in "検索ワード", with: "表参道 ランチ"
       click_on "追加する"
       assert_text "検索ワード「表参道 ランチ」を登録しました。"
     end
