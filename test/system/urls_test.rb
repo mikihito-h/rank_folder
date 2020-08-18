@@ -3,17 +3,14 @@
 require "application_system_test_case"
 
 class UrlsTest < ApplicationSystemTestCase
-  setup do
-    @user = users(:user_1)
-    login_as @user
-  end
-
   test "URL一覧を表示する" do
+    login_as users(:user_1)
     visit urls_path
     assert_selector "h2", text: "URL一覧"
   end
 
   test "URLを新規登録する" do
+    login_as users(:user_3)
     visit urls_path
     click_on "URL追加"
 
@@ -27,12 +24,14 @@ class UrlsTest < ApplicationSystemTestCase
   end
 
   test "URL詳細画面を表示する" do
+    login_as users(:user_1)
     visit urls_path
     click_on "詳細", match: :first
     assert_selector "h2", text: "URL詳細"
   end
 
   test "URLを削除" do
+    login_as users(:user_1)
     visit urls_path
     click_on "詳細", match: :first
 
@@ -45,6 +44,7 @@ class UrlsTest < ApplicationSystemTestCase
   end
 
   test "検索ワードを削除" do
+    login_as users(:user_1)
     visit urls_path
     click_on "詳細", match: :first
 
@@ -57,6 +57,7 @@ class UrlsTest < ApplicationSystemTestCase
   end
 
   test "検索ワードを追加" do
+    login_as users(:user_3)
     visit urls_path
     click_on "詳細", match: :first
     click_on "検索ワード追加"
