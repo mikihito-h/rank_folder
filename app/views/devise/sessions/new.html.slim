@@ -5,6 +5,14 @@ main.page
         h2.page-header__title ログイン
   .page-body
     .container.login-form
+      .alert.alert-warning
+        p
+          | サンプル用のユーザーを使われる方は下記Eメールとパスワードでログインして下さい。
+        p
+          | Eメール:  rankboardsample@gmail.com
+          br
+            | パスワード:  password
+      br
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field.form-group
           = f.label :email
