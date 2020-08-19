@@ -1,0 +1,15 @@
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+ <title/>
+
+ <desc/>
+ <g>
+  <title>background</title>
+  <rect fill="#ffffff" id="canvas_background" height="66" width="66" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path canvas="#ffffff" canvas-opacity="1" id="Rectangle" fill="#aa56ff" d="m21.5,27c1.38071,0 2.5,1.11929 2.5,2.5l0,15c0,1.38071 -1.11929,2.5 -2.5,2.5c-1.38071,0 -2.5,-1.11929 -2.5,-2.5l0,-15c0,-1.38071 1.11929,-2.5 2.5,-2.5z"/>
+  <path id="Rectangle" fill="#aa56ff" d="m31.5,22c1.38071,0 2.5,1.11929 2.5,2.5l0,20c0,1.38071 -1.11929,2.5 -2.5,2.5c-1.38071,0 -2.5,-1.11929 -2.5,-2.5l0,-20c0,-1.38071 1.11929,-2.5 2.5,-2.5z"/>
+  <path id="Rectangle" fill="#aa56ff" d="m41.5,17c1.38071,0 2.5,1.11929 2.5,2.5l0,25c0,1.38071 -1.11929,2.5 -2.5,2.5c-1.38071,0 -2.5,-1.11929 -2.5,-2.5l0,-25c0,-1.38071 1.11929,-2.5 2.5,-2.5z"/>
+ </g>
+</svg>
