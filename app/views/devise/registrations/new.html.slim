@@ -2,9 +2,18 @@ main.page
   header.page-header
     .container
       .page-header__innner
-        h2.page-header__title アカウント作成
+        h2.page-header__title アカウント登録
   .page-body
     .container.new-user-registration-form
+      .alert.alert-warning
+        p
+          | サイト運営上の都合により、ユーザー数を現在制限しています。
+            サンプル用のユーザーを用意していますので、アカウント登録できない場合は下記Eメールとパスワードを使ってログインして下さい。
+        p
+          | Eメール:  rankboardsample@gmail.com
+          br
+            | パスワード:  password
+      br
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = render "devise/shared/error_messages", resource: resource
         .field.form-group
@@ -23,7 +32,7 @@ main.page
           br
           = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"
         .actions
-          = f.submit "アカウントを作成する", class: "btn btn-primary"
+          = f.submit "アカウントを登録する", class: "btn btn-primary"
 
       br
       = link_to "アカウント確認のメールを受け取っていませんか?", new_confirmation_path(resource_name)
