@@ -3,6 +3,7 @@
 class KeywordsController < ApplicationController
   before_action :set_url, only: [:destroy, :new, :create]
   before_action :set_keyword, only: [:destroy]
+  before_action :check_guest, only: [:create, :destroy]
   before_action :check_number_of_keywords, only: [:create]
 
   def new

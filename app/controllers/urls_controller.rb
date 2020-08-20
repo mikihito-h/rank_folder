@@ -2,6 +2,7 @@
 
 class UrlsController < ApplicationController
   before_action :set_url, only: [:show, :destroy]
+  before_action :check_guest, only: [:create, :destroy]
   before_action :check_number_of_keywords, only: [:create]
 
   def index
