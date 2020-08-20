@@ -5,7 +5,7 @@
     url.keywords.each do |k|
       json.set! k.keyword do
         k.rankings.each do |r|
-          json.set! l(r.created_at, format: :short), r.rank
+          json.set! r.acquired_on, r.rank
         end
       end
     end
