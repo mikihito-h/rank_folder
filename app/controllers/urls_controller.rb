@@ -15,7 +15,7 @@ class UrlsController < ApplicationController
     @line_chart_data = @keywords.map do |k|
       h = Hash.new
       k.rankings.each do |r|
-        h[l(r.created_at, format: :short)] = r.rank
+        h[r.acquired_on] = r.rank
       end
       { name: k.keyword, data: h }
     end

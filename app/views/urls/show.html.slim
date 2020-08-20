@@ -31,9 +31,9 @@ main.page
                   th 日付
                   th 順位
               tbody
-              - k.rankings.order(created_at: :desc).each do |r|
+              - k.rankings.order(acquired_on: :desc).each do |r|
                 tr
-                  td = l r.created_at, format: :short
+                  td = r.acquired_on
                   td = r.rank
 
       - unless @number_of_rank_data == 0
