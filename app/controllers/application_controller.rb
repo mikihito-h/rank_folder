@@ -14,4 +14,10 @@ class ApplicationController < ActionController::Base
     end
     number_of_keywords
   end
+
+  def check_guest
+    if current_user.email == "guest@example.com"
+      redirect_to root_path, alert: "ゲストユーザーはその操作の権限がありません。"
+    end
+  end
 end

@@ -2,6 +2,7 @@
 
 class UrlsController < ApplicationController
   before_action :set_url, only: [:show, :destroy]
+  before_action :check_guest, only: [:create, :destroy]
   before_action :check_number_of_keywords, only: [:create]
 
   def index
@@ -56,7 +57,7 @@ class UrlsController < ApplicationController
 
     def check_number_of_keywords
       if number_of_keywords + url_params[:keywords_attributes].to_h.size > 5
-        redirect_to root_path, flash: { alert: "検索ワードの数が上限を超えた為、URLを登録できませんでした。登録できる検索ワードは合計5個までです。" }
+        redirect_to root_path, alert: "検索ワードの数が上限を超えた為、URLを登録できませんでした。登録できる検索ワードは合計5個までです。"
       end
     end
 end

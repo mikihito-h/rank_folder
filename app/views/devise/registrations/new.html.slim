@@ -6,13 +6,8 @@ main.page
   .page-body
     .container.new-user-registration-form
       .alert.alert-warning
-        p
-          | サイト運営上の都合により、ユーザー数を現在制限しています。
-            サンプル用のユーザーを用意していますので、アカウント登録できない場合は下記Eメールとパスワードを使ってログインして下さい。
-        p
-          | Eメール:  rankboardsample@gmail.com
-          br
-            | パスワード:  password
+        | サイト運営上の都合により、ユーザー数を現在制限しています。
+          誰でもログインできるゲストユーザーを用意していますので、アカウント登録できなかった方やサイトを閲覧したい方はログイン画面をご確認ください。
       br
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = render "devise/shared/error_messages", resource: resource
@@ -32,7 +27,7 @@ main.page
           br
           = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"
         .actions
-          = f.submit "アカウントを登録する", class: "btn btn-primary"
+          = f.submit "アカウント登録する", class: "btn btn-primary btn-block"
 
       br
       = link_to "アカウント確認のメールを受け取っていませんか?", new_confirmation_path(resource_name)
