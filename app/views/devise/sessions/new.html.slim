@@ -13,6 +13,8 @@ main.page
           br
             | パスワード:  password
       br
+      = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-info btn-block"
+      br
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field.form-group
           = f.label :email
