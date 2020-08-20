@@ -2,7 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :check_number_of_users, only: [:create]
-  before_action :check_guest, only: [:update, :destroy]
+  before_action :check_guest, only: [:update, :destroy, :edit]
 
   private
     def check_number_of_users
@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def check_guest
       if resource.email == "guest@example.com"
-        redirect_to root_path, alert: "ゲストユーザーの変更・削除はできません。"
+        redirect_to root_path, alert: "ゲストユーザーの情報は変更・削除できません。"
       end
     end
 
