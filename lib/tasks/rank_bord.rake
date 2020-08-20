@@ -11,7 +11,7 @@ task create_rank: :environment do
 end
 
 desc "ゲストユーザーのURL、検索ワード、ランキングデータを生成"
-task add_guest_data: :environment do
+task create_guest_data: :environment do
   guest_user = User.guest
   8.times do |n|
     url = guest_user.urls.create(url: "https://example.com/#{n+1}")
@@ -25,4 +25,4 @@ task add_guest_data: :environment do
 end
 
 # ゲストユーザーの検索ワードの順位を取得しない為に、create_rankタスクの前にゲストユーザーのデータを一度削除する。
-task routene: [:delete_guest_data, :create_rank, :add_guest_data]
+task routene: [:delete_guest_data, :create_rank, :create_guest_data]
