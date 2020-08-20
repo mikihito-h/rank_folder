@@ -6,14 +6,10 @@ main.page
   .page-body
     .container.login-form
       .alert.alert-warning
-        p
-          | サンプル用のユーザーを使われる方は下記Eメールとパスワードでログインして下さい。
-        p
-          | Eメール:  rankboardsample@gmail.com
-          br
-            | パスワード:  password
+        | サイト運営上の都合により、ユーザー数を現在制限しています。
+          誰でもログインできるゲストユーザーを用意していますので、アカウント登録できなかった方やサイトを閲覧したい方は下のボタンからログインしてください。
       br
-      = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-info btn-block"
+      = link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "btn btn-info btn-block"
       br
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field.form-group
@@ -29,7 +25,7 @@ main.page
             = f.check_box :remember_me  
             = f.label :remember_me
         .actions
-          = f.submit t('.sign_in'), class: "btn btn-primary"
+          = f.submit t('.sign_in'), class: "btn btn-primary btn-block"
       br
       = link_to "パスワードを忘れましたか？", new_password_path(resource_name)
       br
