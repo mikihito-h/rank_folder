@@ -24,7 +24,7 @@ main.page
                 i.fas.fa-search
               .search-window__keyword
                 = k.keyword
-            p = link_to '削除', url_keyword_path(@url.id, k.id),  method: :delete, data: {   confirm: "検索ワードを削除しますか？" }
+            p = link_to '削除', url_keyword_path(@url.id, k.id),  method: :delete, data: {   confirm: "検索ワードを削除しますか？" }, class: "delete-keyword-btn"
             table.table.table-sm.table-striped
               thead.thead-dark
                 tr
