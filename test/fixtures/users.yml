@@ -19,3 +19,9 @@ user_3:
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   confirmed_at: <%= Time.now %>
   api_key: user3apikey
+guest_user:
+  name: guset
+  email: guest@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= Time.now %>
+  api_key: guestapi
