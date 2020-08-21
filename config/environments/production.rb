@@ -120,8 +120,8 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
   address: "smtp.gmail.com",
   port: 587,
-  user_name: "rankboard1@gmail.com",
-  password: ENV["RANKBORD1_PWD"],
+  user_name: "info.rankboard@gmail.com",
+  password: ENV["GOOGLE_APPLI_PWD"],
   authentication: "plain",
   enable_starttls_auto: true
   }
