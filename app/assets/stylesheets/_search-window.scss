@@ -1,6 +1,6 @@
 .search-window {
   background-color: #e8e8ea;
-  width: 230px;
+  width: 229px;
   margin: 10px auto;
   height: 35px;
   border-radius: 20px;
@@ -17,8 +17,7 @@
 
 .search-window__keyword {
   position: absolute;
-  overflow: scroll;
   line-height: 35px;
   left: 35px;
-  width: 190px;
+  white-space: nowrap;
 }
