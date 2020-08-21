@@ -70,7 +70,7 @@ class UrlsTest < ApplicationSystemTestCase
   end
 
   test "APIのレスポンスを確認" do
-    visit "http://localhost:3000/api/v1/ranks.json?api_key=user1apikey"
+    visit "api/v1/ranks.json?api_key=user1apikey"
     assert_text '{"https://example.com":{"Ruby スクール":{"2020-08-13":5,"2020-08-12":3,"2020-08-11":4,"2020-08-10":8,"2020-08-09":5,"2020-08-08":5},"プログラミング":{"2020-08-13":1,"2020-08-12":3,"2020-08-11":2,"2020-08-10":3,"2020-08-09":5,"2020-08-08":20}}}'
   end
 end
