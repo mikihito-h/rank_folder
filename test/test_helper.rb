@@ -19,7 +19,7 @@ class ActiveSupport::TestCase
     config.hook_into :webmock
     config.ignore_localhost = true
     config.allow_http_connections_when_no_cassette = false
-    config.filter_sensitive_data("{key}") { ENV.fetch("GOOGLE_API_KEY") }
-    config.filter_sensitive_data("{cse}") { ENV.fetch("GOOGLE_CSE_ID") }
+    config.filter_sensitive_data("{key}") { ENV["GOOGLE_API_KEY"] }
+    config.filter_sensitive_data("{cse}") { ENV["GOOGLE_CSE_ID"] }
   end
 end
