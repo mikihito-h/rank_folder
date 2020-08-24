@@ -2,13 +2,17 @@ header.header
   h1.header__title
     = link_to "RankBoard", root_path, class: "header__title--link text-decoration-none"
   - if user_signed_in?
-    .dropdown.dropleft
-      button#dropdownMenuButton.btn.btn-secondary.btn-sm.dropdown-toggle[type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-        |  Menu
-      .dropdown-menu[aria-labelledby="dropdownMenuButton"]
-        = link_to 'APIリファレンス', api_reference_path, class: "dropdown-item"
-        = link_to '登録情報変更', edit_user_registration_path, class: "dropdown-item"
-        = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item"
+    .accbox
+      label for="label1"  Menu
+      input#label1.cssacc type="checkbox"
+      .accshow
+        ul.header-dropdown__items
+          li.header-dropdown__item
+            = link_to 'APIリファレンス', api_reference_path, class: "header-dropdown__item-link"
+          li.header-dropdown__item
+            = link_to '登録情報変更', edit_user_registration_path, class: "header-dropdown__item-link"
+          li.header-dropdown__item
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-dropdown__item-link"
   - else
     .header-nav__items
       .header-nav__item
