@@ -31,7 +31,7 @@ class UsersTest < ApplicationSystemTestCase
 
   test "ログアウトする" do
     visit urls_path
-    click_on "Menu"
+    find("label[for=label1]").click
     click_on "ログアウト"
     assert_text "ログアウトしました。"
   end

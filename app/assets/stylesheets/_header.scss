@@ -8,17 +8,25 @@
 
 .header__title {
   font-size: 1.7rem;
-  line-height: 50px;
   margin-left: 50px;
+  height: 40px;
+  border-radius: 5%;
+  padding: 0 8px;
+  transition: all 0.3s;
+  margin-top: 5px;
+
+  &:hover {
+    background :#5a5a5a;
+  }
 }
 
 .header__title--link {
   color: white;
-}
+  line-height: 40px;
 
-.dropdown {
-  line-height: 50px;
-  margin-right: 50px;
+  &:hover {
+    color: white;
+  }
 }
 
 .header-nav__items {
@@ -33,4 +41,73 @@
 
 .header__login-button {
   color: white;
+}
+
+.accbox {
+  padding: 0;
+  max-width: 65px;
+  text-align: center;
+  margin-top: 8px;
+  position: absolute;
+  right: 70px;
+}
+
+.accbox label {
+  display: block;
+  margin-bottom: 0px;
+  padding : 6px 0px;
+  color : white;
+  font-size: 14px;
+  background :#6c757d;
+  cursor :pointer;
+  transition: all 0.5s;
+  border-radius: 10%;
+
+  &:hover {
+    background :#5b5b5c;
+  }
+}
+
+.accbox input {
+  display: none;
+}
+
+.accbox .accshow {
+  height: 0;
+  padding: 0;
+  width: 190px;
+  opacity: 0;
+  transition: 0.1s;
+  position: relative;
+  right: 126px;
+}
+
+.cssacc:checked + .accshow {
+  height: 150px;
+  background: white;
+  opacity: 1;
+  z-index: 5;
+  border-radius: 3%;
+  position: relative;
+  right: 126px;
+  border: solid 1px rgb(188, 188, 189);
+}
+
+.header-dropdown__item-link {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  width: 100%;
+  &:hover{
+  text-decoration: none;
+  color: black;
+  }
+}
+
+.header-dropdown__item {
+  height: 50px;
+  line-height: 50px;
+  &:hover{
+    background-color: #eceaea;
+  }
 }
