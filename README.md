@@ -21,3 +21,10 @@ $ rails server
 ```
 $ ./bin/test
 ```
+
+
+## Lint
+rubocopを実行します。
+```
+$ ./bin/lint
+```
