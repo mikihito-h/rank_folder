@@ -17,7 +17,7 @@ class GuestsTest < ApplicationSystemTestCase
       fill_in "検索ワード", with: "ruby スクール"
       click_on "検索ワードを追加"
       click_on "登録する"
-      assert_text "ゲストユーザーはその操作の権限がありません。"
+      assert_text "かんたんログイン中にその操作はできません。"
     end
   end
 
@@ -29,7 +29,7 @@ class GuestsTest < ApplicationSystemTestCase
       page.accept_confirm do
         click_on "URL削除"
       end
-      assert_text "ゲストユーザーはその操作の権限がありません。"
+      assert_text "かんたんログイン中にその操作はできません。"
     end
   end
 
@@ -41,7 +41,7 @@ class GuestsTest < ApplicationSystemTestCase
     assert_no_difference "Keyword.count" do
       fill_in "検索ワード", with: "表参道 ランチ"
       click_on "追加する"
-      assert_text "ゲストユーザーはその操作の権限がありません。"
+      assert_text "かんたんログイン中にその操作はできません。"
     end
   end
 
@@ -53,12 +53,12 @@ class GuestsTest < ApplicationSystemTestCase
       page.accept_confirm do
         click_on "削除", match: :first
       end
-      assert_text "ゲストユーザーはその操作の権限がありません。"
+      assert_text "かんたんログイン中にその操作はできません。"
     end
   end
 
   test "ゲストユーザーは登録情報変更ページに行けない" do
     visit edit_user_registration_path
-    assert_text "ゲストユーザーの情報は変更・削除できません。"
+    assert_text "かんたんログイン中にその操作はできません。"
   end
 end
