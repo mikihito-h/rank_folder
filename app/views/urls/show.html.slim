@@ -16,6 +16,11 @@ main.page
             | 登録できる検索ワードは１人５個までです。
       h3.page-body__title URL
       h4.page-body__title-url = @url.url
+
+      - unless @number_of_rank_data == 0
+        .rank-chart
+         = line_chart @line_chart_data, curve: false, suffix: "位"
+
       .rank-cards
         - @keywords.each do |k|
           .rank-card
@@ -35,10 +40,6 @@ main.page
                 tr
                   td = r.acquired_on
                   td = r.rank
-
-      - unless @number_of_rank_data == 0
-        .rank-chart
-         = line_chart @line_chart_data, curve: false, suffix: "位"
 
       .page-body-bottom
         = link_to 'URL削除', @url, method: :delete, data: { confirm: 'URLを削除しますか？' }, id: "btn-destroy-url", class: "btn btn-danger"
