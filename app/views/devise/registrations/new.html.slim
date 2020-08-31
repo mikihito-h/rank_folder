@@ -7,7 +7,8 @@ main.page
     .container.new-user-registration-form
       .alert.alert-warning
         | サイト運営上の都合により、ユーザー数を現在制限しています。
-          誰でもログインできるゲストユーザーを用意していますので、アカウント登録できなかった方やサイトを閲覧したい方はログイン画面をご確認ください。
+          アカウント登録しないでもサイトを閲覧できるように「かんたんログイン」機能を用意しています。
+          「かんたんログイン」したい方はログイン画面をご確認ください。
       br
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = render "devise/shared/error_messages", resource: resource

@@ -7,9 +7,9 @@ main.page
     .container.login-form
       .alert.alert-warning
         | サイト運営上の都合により、ユーザー数を現在制限しています。
-          誰でもログインできるゲストユーザーを用意していますので、アカウント登録できなかった方やサイトを閲覧したい方は下のボタンからログインしてください。
+          アカウント登録しないでサイトを閲覧したい方は下の「かんたんログイン」ボタンからログインして下さい。
       br
-      = link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "btn btn-info btn-block"
+      = link_to 'かんたんログイン', users_guest_sign_in_path, method: :post, class: "btn btn-info btn-block"
       br
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field.form-group

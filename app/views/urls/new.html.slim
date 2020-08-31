@@ -2,11 +2,23 @@ main.page
   header.page-header
     .container
       .page-header__innner
-        h2.page-header__title URL新規登録
+        h2.page-header__title サイト新規登録
         .page-header-actions
           = link_to '戻る', urls_path, class: "btn btn-secondary"
 
   .page-body
     .container
+      .alert.alert-secondary.page-body__specification
+        p サイトURLの欄には順位計測の対象とするウェブサイト（ホームページ）のURLを入力してください。
+        br
+        p （例）入力URLが「https://example.com」 の場合
+        p https://example.com ○計測されます。
+        p https://example.com/ ○計測されます。
+        p https://example.com/home ×計測されません。
+      br
+      .alert.alert-secondary.page-body__specification
+        p 検索ワードの欄にはGoogle検索をするときに実際に入力する文字列を入力してください。
+        p 登録できる検索ワードは1つのアカウントにつき合計５個までです。
+
       .form
         = render 'form', url: @url

@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def check_guest
     if current_user.email == "guest@example.com"
-      redirect_to root_path, alert: "ゲストユーザーはその操作の権限がありません。"
+      redirect_to root_path, alert: "かんたんログイン中にその操作はできません。"
     end
   end
 end

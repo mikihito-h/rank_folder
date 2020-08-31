@@ -9,7 +9,7 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     attributes:
       url:
-        url: URL
+        url: サイトURL
       keyword:
         keyword: 検索ワード
   date:

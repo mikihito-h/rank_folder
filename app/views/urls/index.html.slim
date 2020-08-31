@@ -2,9 +2,9 @@ main.page
   header.page-header
     .container
       .page-header__innner
-        h2.page-header__title URL一覧
+        h2.page-header__title サイト一覧
         .page-header-actions
-          = link_to 'URL追加', new_url_path, class: "btn btn-primary"
+          = link_to 'サイトを追加', new_url_path, class: "btn btn-primary"
 
   .page-body
     .container
@@ -13,7 +13,7 @@ main.page
           thead.table-info
             tr
               th
-                | URL
+                | サイトURL
               th
                 | 検索ワード数
               th[colspan="1"]
@@ -25,4 +25,4 @@ main.page
                 td
                   = url.keywords.count
                 td
-                  = link_to '詳細', url
+                  = link_to '順位を見る', url
