@@ -9,20 +9,20 @@ Rails.application.routes.draw do
   end
 
   root "home#index"
-  resources :urls, except: [:edit, :update] do
+  resources :urls, only: [:index, :show, :new, :create, :destroy] do
     resources :keywords, only: [:destroy, :new, :create]
   end
-  get "tos" => "welcome#tos"
-  get "policy" => "welcome#policy"
+  get "tos", to: "welcome#tos"
+  get "policy", to: "welcome#policy"
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  namespace "api" do
-    namespace "v1" do
+  namespace :api do
+    namespace :v1 do
       resources :ranks, only: [:index]
     end
-    get "reference", to: "reference#index"
+    resources :reference, only: [:index]
   end
 end
