@@ -19,21 +19,16 @@ class UrlsController < ApplicationController
       end
       { name: k.keyword, data: h }
     end
-
-    @number_of_rank_data = 0
-    @keywords.each do |k|
-      @number_of_rank_data += k.rankings.count
-    end
   end
 
   def new
-    @url = Url.new
+    @url = current_user.urls.new
   end
 
   def create
     @url = current_user.urls.new(url_params)
     if @url.save
-      redirect_to @url, notice: "Urlを登録しました。"
+      redirect_to url_path(@url), notice: "Urlを登録しました。"
     else
       render :new
     end

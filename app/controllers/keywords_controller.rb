@@ -13,7 +13,7 @@ class KeywordsController < ApplicationController
   def create
     @keyword = @url.keywords.new(keyword_params)
     if @keyword.save
-      redirect_to url_path(params[:url_id]), notice: "検索ワード「#{@keyword.keyword}」を登録しました。"
+      redirect_to url_path(@url), notice: "検索ワード「#{@keyword.keyword}」を登録しました。"
     else
       render :new
     end
@@ -21,7 +21,7 @@ class KeywordsController < ApplicationController
 
   def destroy
     @keyword.destroy
-    redirect_to @url, notice: "検索ワード「#{@keyword.keyword}」を削除しました。"
+    redirect_to url_path(@url), notice: "検索ワード「#{@keyword.keyword}」を削除しました。"
   end
 
   private
@@ -39,7 +39,7 @@ class KeywordsController < ApplicationController
 
     def check_number_of_keywords
       if number_of_keywords >= 5
-        redirect_to @url, alert: "検索ワードを追加できませんでした。登録できる検索ワードは合計5個までです。"
+        redirect_to url_path(@url), alert: "検索ワードを追加できませんでした。登録できる検索ワードは合計5個までです。"
       end
     end
 end
