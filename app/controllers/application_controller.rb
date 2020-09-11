@@ -8,11 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def number_of_keywords
-    number_of_keywords = 0
-    current_user.urls.each do |url|
-      number_of_keywords += url.keywords.count
-    end
-    number_of_keywords
+    current_user.urls.sum { |url| url.keywords.count }
   end
 
   def check_guest
