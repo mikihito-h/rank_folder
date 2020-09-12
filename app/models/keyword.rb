@@ -2,20 +2,21 @@
 
 class Keyword < ApplicationRecord
   belongs_to :url
-  validates :keyword, presence: true
   has_many :rankings, dependent: :destroy
+  validates :keyword, presence: true
 
-  def self.create_rank
-    all.each do |keyword|
-      keyword.create_rank
-    rescue => e
-      puts e.full_message
-      Rails.logger.error e.full_message
+  class << self
+    def create_rank
+      all.each do |keyword|
+        keyword.create_rank
+      rescue => e
+        Rails.logger.error e.full_message
+      end
     end
   end
 
   def create_rank
-    urls =  fetch_urls
+    urls = fetch_urls
     rank = urls.present? ? get_rank(urls, self.url.url) : 0
     ranking = self.rankings.find_or_initialize_by(acquired_on: Date.current)
     ranking.rank = rank
@@ -25,6 +26,7 @@ class Keyword < ApplicationRecord
   private
     def fetch_urls
       start_index = 1
+      max_start_index = 91
       urls = []
       begin
         response = request_to_google(start_index)
@@ -35,7 +37,7 @@ class Keyword < ApplicationRecord
         json_response_body = JSON.parse(response.body)
         break if (extracted_urls = extract_urls(json_response_body)) == []
         urls += extracted_urls
-      end while (start_index = json_response_body.dig("queries", "nextPage", 0, "startIndex")) && start_index <= 91
+      end while (start_index = json_response_body.dig("queries", "nextPage", 0, "startIndex")) && start_index <= max_start_index
       urls
     end
 
