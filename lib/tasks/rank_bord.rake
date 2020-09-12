@@ -2,7 +2,7 @@
 
 desc "ゲストユーザーのURL、検索ワード、ランキングデータを全て削除"
 task delete_guest_data: :environment do
-  User.find_by(email: "guest@example.com").urls.destroy_all if User.find_by(email: "guest@example.com")
+  User.find_by(email: "guest@example.com")&.urls&.destroy_all
 end
 
 desc "Google検索順位を保存"
