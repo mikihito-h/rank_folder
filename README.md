@@ -18,10 +18,15 @@ $ rails server
 
 
 ## テスト
+ヘッドレスブラウザーでテスト
 ```
 $ ./bin/test
 ```
 
+普通のブラウザーでテスト
+```
+$ HEADED=1 ./bin/test
+```
 
 ## Lint
 rubocopを実行します。
