@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    title
+      | RankBoard
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag asset_path("favicon.svg")
+  body
+    = yield

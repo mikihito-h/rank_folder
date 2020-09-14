@@ -38,6 +38,7 @@ group :development do
   gem "html2slim"
   gem "letter_opener_web"
   gem "i18n_generators"
+  gem "hanmoto"
 end
 
 group :test do
