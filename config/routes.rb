@@ -23,6 +23,6 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :ranks, only: [:index]
     end
-    resources :reference, only: [:index]
+    resource :reference, only: [:show]
   end
 end

@@ -37,13 +37,13 @@ class UsersTest < ApplicationSystemTestCase
   end
 
   test "APIキーを確認する" do
-    visit api_reference_index_path
+    visit api_reference_path
     assert_text "あなたのAPIキーは user1apikey です。"
   end
 
   test "ログインしていない時はAPIキーが表示されない" do
     logout
-    visit api_reference_index_path
+    visit api_reference_path
     assert_no_text "あなたのAPIキーは"
   end
 end
