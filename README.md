@@ -11,7 +11,7 @@ RankBoard（ランクボード）とは、Webサイトの検索順位の変動�
 
 
 ## インストール
-ファイル`config/database.yml.example`の名前を`config/database.yml`に変更して、内容を適宜書き換えてから下記コマンドを実行して下さい。
+ファイル`database.yml.example`の名前を`database.yml`に変更して、内容を適宜書き換えてから下記コマンドを実行して下さい。
 ```
 $ bin/setup
 $ rails server
