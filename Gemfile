@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 source "https://rubygems.org"
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.1"
 
-gem "rails", "~> 6.0.3", ">= 6.0.3.2"
-gem "pg", ">= 0.18", "< 2.0"
+gem "rails", "6.0.3.2"
+gem "pg"
 gem "puma", "~> 4.1"
 gem "sass-rails", ">= 6"
 gem "webpacker", "~> 4.0"
@@ -21,7 +20,6 @@ gem "slim-rails"
 gem "cocoon"
 gem "chartkick"
 gem "bootstrap", "~> 4.5.0"
-gem "jquery-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
@@ -40,6 +38,7 @@ group :development do
   gem "html2slim"
   gem "letter_opener_web"
   gem "i18n_generators"
+  gem "hanmoto"
 end
 
 group :test do
@@ -49,5 +48,3 @@ group :test do
   gem "vcr"
   gem "webmock"
 end
-
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

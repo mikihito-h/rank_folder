@@ -11,6 +11,7 @@ RankBoard（ランクボード）とは、Webサイトの検索順位の変動�
 
 
 ## インストール
+ファイル`database.yml.example`の名前を`database.yml`に変更して、内容を適宜書き換えてから下記コマンドを実行して下さい。
 ```
 $ bin/setup
 $ rails server
@@ -18,10 +19,17 @@ $ rails server
 
 
 ## テスト
+モデルテストを実行する場合は、環境変数`GOOGLE_API_KEY`と`GOOGLE_CSE_ID`を設定して下さい。値はなんでも大丈夫です。
+
+ヘッドレスブラウザーでテスト
 ```
 $ ./bin/test
 ```
 
+普通のブラウザーでテスト
+```
+$ HEADED=1 ./bin/test
+```
 
 ## Lint
 rubocopを実行します。

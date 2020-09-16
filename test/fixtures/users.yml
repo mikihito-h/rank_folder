@@ -3,7 +3,7 @@ user_1:
   name: User_1
   email: user1@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
-  confirmed_at: <%= Time.now %>
+  confirmed_at: <%= Time.current %>
   api_key: user1apikey
 
 user_2:
@@ -11,7 +11,7 @@ user_2:
   name: User_2
   email: user2@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
-  confirmed_at: <%= Time.now %>
+  confirmed_at: <%= Time.current %>
   api_key: user2apikey
 
 user_3:
@@ -19,12 +19,12 @@ user_3:
   name: User_3
   email: user3@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
-  confirmed_at: <%= Time.now %>
+  confirmed_at: <%= Time.current %>
   api_key: user3apikey
 
 guest_user:
   name: guset
   email: guest@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
-  confirmed_at: <%= Time.now %>
+  confirmed_at: <%= Time.current %>
   api_key: guestapi

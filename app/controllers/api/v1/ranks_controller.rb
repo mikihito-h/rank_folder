@@ -1,17 +1,7 @@
 # frozen_string_literal: true
 
-class Api::V1::RanksController < ApplicationController
-  before_action :set_urls, only: [:index]
-  skip_before_action :authenticate_user!
-
+class Api::V1::RanksController < Api::V1::ApplicationController
   def index
+    @urls = User.find_by!(api_key: params[:api_key]).urls
   end
-
-  private
-    def set_urls
-      if User.find_by(api_key: params[:api_key])
-        user = User.find_by(api_key: params[:api_key])
-        @urls = user.urls
-      end
-    end
 end
