@@ -1,23 +1,15 @@
-.search-window {
-  background-color: #e8e8ea;
-  width: 229px;
-  margin: 10px auto;
-  height: 35px;
-  border-radius: 20px;
-  position: relative;
-  overflow: scroll;
-}
-
 .search-window__icon {
-  line-height: 35px;
-  position: absolute;
-  left: 10px;
-
+  color: rgb(117, 116, 116);
+  font-size: 12px;
+  position: relative;
+  left: 3px;
 }
 
 .search-window__keyword {
-  position: absolute;
-  line-height: 35px;
-  left: 35px;
-  white-space: nowrap;
+  position: relative;
+  margin-top: 0px;
+  background-color: #e8e8ea;
+  border-radius: 20px;
+  padding: 5px 10px 5px 10px;
+  word-break: break-all;
 }
