@@ -11,6 +11,6 @@
 
 .table__url {
   max-width: 160px;
-  overflow: scroll;
   text-align: left;
+  word-break: break-all;
 }
