@@ -7,7 +7,6 @@ main.page
   .page-body
     .container
       .api-reference-content
-        p.short-api-text 当サイト（RankBoard）で取得したデータをご利用になれます。
         - if user_signed_in?
           .alert.alert-warning.your-api-key
             | 
@@ -31,6 +30,7 @@ main.page
         p json
 
         h3 レスポンスサンプル
+        p.short-api-text 取得した自分の全データが返ってきます。
         pre.response_sample
           |
             {

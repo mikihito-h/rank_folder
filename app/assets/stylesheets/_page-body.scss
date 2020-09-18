@@ -1,22 +1,23 @@
 .page-body {
   min-height: 100%;
+  width: 100%;
 }
 
 .page-body__title {
   position: relative;
-  top: 181px;
-  left: 45px;
+  top: 82px;
+  left: 90px;
+  padding-right: 50px;
   font-size: 20px;
   color: rgb(117, 116, 116);
 }
 
 .page-body__title-url {
   position: relative;
-  top: 148px;
-  left: 110px;
-  font-size: 20px;
-  display: inline-block;
-  max-width: 75%;
+  top: 74px;
+  left: 90px;
+  width: 80%;
+  padding-bottom: 40px;
   word-break: break-all;
 }
 
@@ -41,7 +42,7 @@
   width: 80%;
   margin: 0 auto;
   position: relative;
-  top: 150px;
+  top: 40px;
   background-color: rgb(238, 238, 238);
 
   p {
