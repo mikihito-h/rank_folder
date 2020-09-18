@@ -20,4 +20,9 @@
 .delete-keyword-btn {
   position: relative;
   left: 180px;
+  color: red;
+
+  &:hover {
+    color: rgb(139, 28, 28);
+  }
 }
