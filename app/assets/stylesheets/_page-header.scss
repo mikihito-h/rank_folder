@@ -3,18 +3,22 @@
 }
 
 .page-header__title {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  right: 50px;
+  position: relative;
+  top: 25px;
+  left: 34px;
+  right: 30px;
+  width: 95%;
   font-size: 30px;
   word-break: break-all;
 }
 
 .page-header-actions {
-  position: absolute;
-  top: 90px;
-  right: 50px;
+  position: relative;
+  top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+  padding-top: 20px;
 }
 
 .page-header__back-btn{
@@ -24,7 +28,7 @@
 .page-header__pre-title {
   font-size: 17px;
   position: relative;
-  top: 25px;
+  top: 30px;
   left: 33px;
   color: rgb(117, 116, 116);
 }
