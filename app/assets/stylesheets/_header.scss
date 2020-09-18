@@ -82,6 +82,10 @@
   right: 126px;
 }
 
+.cssacc:not(:checked) + .accshow {
+  pointer-events: none
+}
+
 .cssacc:checked + .accshow {
   height: 150px;
   background: white;

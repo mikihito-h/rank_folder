@@ -16,10 +16,14 @@ task create_guest_data: :environment do
   ActiveRecord::Base.transaction do
     8.times do |n|
       url = guest_user.urls.create(url: "https://example.com/#{n+1}")
-      rand(1..5).times do |v|
-        keyword = url.keywords.create(keyword: "検索ワード#{v+1}")
-        8.times do |k|
-          keyword.rankings.create(rank: rand(1..10), acquired_on: "2020-10-0#{k+1}")
+      url.keywords.create(keyword: "東京 ご飯")
+      url.keywords.create(keyword: "日本 観光 おすすめ")
+      url.keywords.create(keyword: "渋谷 ランチ")
+      url.keywords.create(keyword: "ランチ おすすめ")
+      url.keywords.create(keyword: "ランチ 人気店")
+      url.keywords.each do |keyword|
+        8.times do |v|
+          keyword.rankings.create(rank: rand(1..10), acquired_on: "2020-10-0#{v+1}")
         end
       end
     end

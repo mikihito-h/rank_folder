@@ -1,13 +1,16 @@
 main.page
   header.page-header
     .container
-      .page-header__innner
+      .page-header__inner
         h2.page-header__title 検索ワード追加
         .page-header-actions
           = link_to '戻る', urls_path, class: "btn btn-secondary page-header__back-btn"
 
   .page-body
     .container
+      .alert.alert-secondary.page-body__specification
+        p 検索ワードの欄にGoogle検索をするときに実際に入力する文字列を入力してください。
+        p 登録できる検索ワードは1つのアカウントにつき合計５個までです。
       h3.page-body__title URL
       h4.page-body__title-url = @url.url
       .form

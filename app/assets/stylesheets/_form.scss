@@ -10,3 +10,22 @@
   width: 70%;
   padding-bottom: 30px;
 }
+
+.nested-fields {
+  display: flex;
+}
+
+.nested-fields .field .form-control {
+  display: inline-block;
+}
+
+.delete_keyword_button {
+  color: red;
+  display: inline-block;
+  padding-top: 40px;
+  padding-left: 10px;
+
+  &:hover {
+    color: rgb(139, 28, 28);
+  }
+}
