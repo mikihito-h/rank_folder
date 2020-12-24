@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
     def check_number_of_users
-      if User.count >= 60
+      if User.count >= 5
         redirect_to root_path, alert: "既にユーザー数の上限に達している為、アカウント登録できませんでした。"
       end
     end
